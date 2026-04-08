@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify Certificate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 12px;
+            width: 100%;
+            padding: 12px;
+            background: #1e3c72;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* ---------- CERTIFICATE VIEW ---------- */
+
+        .certificate-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto 0;
+        }
+
+        .certificate-wrapper img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .cert-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            color: #000;
+        }
+
+        .student-name {
+            top: 42%;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .course-name {
+            top: 52%;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .institution {
+            top: 60%;
+            font-size: 18px;
+        }
+
+        .issue-date {
+            bottom: 18%;
+            right: 18%;
+            position: absolute;
+            font-size: 14px;
+        }
+
+        .error {
+            background: #ffe6e6;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            color: #c0392b;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Verify Certificate</h2>
+
+    <form method="post">
+        <label>Enter Certificate Hash</label>
+        <input type="text" name="hash" placeholder="Paste certificate hash here" required>
+        <button type="submit">Verify</button>
+    </form>
+
+    {% if cert %}
+        <!-- CERTIFICATE VISUAL DISPLAY -->
+        <div class="certificate-wrapper">
+            <img src="{{ url_for('static', filename='images/certificate_template.png') }}" alt="Certificate">
+
+            <div class="cert-text student-name">
+                {{ cert.student_name }}
+            </div>
+
+            <div class="cert-text course-name">
+                {{ cert.course }}
+            </div>
+
+            <div class="cert-text institution">
+                {{ cert.institution }}
+            </div>
+
+            <div class="issue-date">
+                {{ cert.issue_date }}
+            </div>
+        </div>
+
+    {% elif cert is not none %}
+        <div class="error">
+            ❌ Invalid or Non-Existent Certificate
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

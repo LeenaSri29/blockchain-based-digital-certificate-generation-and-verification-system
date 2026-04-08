@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blockchain Certificate System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #1e3c72;
+        }
+
+        .subtitle {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .card {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn.primary {
+            background: #1e3c72;
+            color: #fff;
+        }
+
+        .btn.secondary {
+            background: #2a5298;
+            color: #fff;
+        }
+
+        .btn.outline {
+            border: 2px solid #1e3c72;
+            color: #1e3c72;
+            background: transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .feature-box {
+            padding: 15px;
+            background: #f4f7fb;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #1e3c72;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Blockchain-Based Digital Certificate System</h1>
+    <p class="subtitle">
+        Secure • Tamper-Proof • Instant Verification using Blockchain Technology
+    </p>
+
+    <!-- ✅ FIXED LINKS -->
+    <div class="card">
+        <a href="{{ url_for('auth.login') }}" class="btn primary">Login</a>
+        <a href="{{ url_for('auth.signup') }}" class="btn secondary">Signup</a>
+        <a href="/verify" class="btn outline">Verify Certificate</a>
+    </div>
+
+    <div class="features">
+        <div class="feature-box">🔐 Secure Storage</div>
+        <div class="feature-box">⛓ Blockchain Verified</div>
+        <div class="feature-box">📄 Bulk Certificate Generation</div>
+        <div class="feature-box">📱 QR Code Verification</div>
+    </div>
+
+    <footer>
+        <p>© 2025 Blockchain Certificate System | Academic Project</p>
+    </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+flask
+flask_sqlalchemy
+flask_login
+pandas
+openpyxl
+qrcode
+reportlab
+web3

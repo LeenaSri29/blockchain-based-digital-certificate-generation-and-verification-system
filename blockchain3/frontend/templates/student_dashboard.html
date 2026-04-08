@@ -1,0 +1,6 @@
+<h3>Student Dashboard</h3>
+{% for c in certs %}
+<p>{{c.course}} |
+<a href="/{{c.pdf_path}}" target="_blank">Download</a></p>
+{% endfor %}
+<a href="/logout">Logout</a>

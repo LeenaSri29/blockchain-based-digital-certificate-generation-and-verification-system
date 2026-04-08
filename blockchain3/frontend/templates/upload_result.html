@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Completed</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .result-card {
+            background: #ffffff;
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        h2 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            background: #f4f7fb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .created {
+            color: #16a34a;
+        }
+
+        .skipped {
+            color: #dc2626;
+        }
+
+        .actions {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn.primary {
+            background: #1e3c72;
+            color: #fff;
+        }
+
+        .btn.secondary {
+            background: #e5e7eb;
+            color: #1e3c72;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="result-card">
+
+    <h2>Upload Completed ✅</h2>
+
+    <div class="stat-box created">
+        Certificates Created: {{ created }}
+    </div>
+
+    <div class="stat-box skipped">
+        Duplicates Skipped: {{ skipped }}
+    </div>
+
+    <div class="actions">
+        <a href="/institute" class="btn primary">Back to Dashboard</a>
+        <a href="/verify" class="btn secondary">Verify Certificate</a>
+    </div>
+
+</div>
+
+</body>
+</html>
